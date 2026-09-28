@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Biomassa Catalunya</title>
+
+<link rel="stylesheet" href="css/style.css?v=20260926-public-copy-7">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <!-- Retorn al portal comú dels projectes de la Nit de la Recerca. -->
+    <a class="project-return" href="../index.html">← Projectes</a>
+
+    <div class="capcalera">
+
+        <div class="logo">
+            🌿
+        </div>
+
+        <div class="titolApp">
+            <h3>Transició energètica i bioeconomia circular a Catalunya</h3>
+            <h4>Nit de la Recerca · Universitat de Lleida</h4>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section id="portada">
+
+<h4>NIT DE LA RECERCA</h4> 
+<h1>Com es distribueixen territorialment els recursos de biomassa i quines oportunitats i reptes presenten a Catalunya?</h1>
+<h3>Descobreix com la valorització energètica de residus de biomassa pot reduir la dependència dels combustibles fòssils, impulsar la bioeconomia circular i generar noves oportunitats d’ingressos.</h3>
+
+<button id="comenca">COMENÇA</button>
+
+</section>
+
+
+<!-- =====================================================
+     MENÚ BIOMASSA
+===================================================== -->
+
+<section id="menu">
+
+
+    <h1>
+        Quines fonts de biomassa existeixen a Catalunya?
+    </h1>
+
+
+    <div class="icones">
+
+        <div class="icona" data-biomassa="forestal">
+            🌲<br>Forestal
+        </div>
+
+        <div class="icona" data-biomassa="agricola">
+            🌾<br>Agrícola
+        </div>
+
+        <div class="icona" data-biomassa="ramadera">
+            🐖<br>Ramadera
+        </div>
+
+        <div class="icona" data-biomassa="aquatica">
+            🌊<br>Aquàtica
+        </div>
+
+        <div class="icona" data-biomassa="industrial">
+            🏭<br>Industrial
+        </div>
+       <div class="icona" data-biomassa="urbana">
+            🏙️<br>Urbana
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     PANTALLA BIOMASSA
+===================================================== -->
+
+<section id="ramadera">
+
+    <h1 id="titolBiomassa"></h1>
+
+
+    <div class="pantalla">
+
+        <div class="menuLateral">
+
+            <button class="opcio" data-seccio="quees">
+                📖 Què és?
+            </button>
+
+            <button class="opcio" data-seccio="distribucio">
+                🗺 Distribució
+            </button>
+
+        <button class="opcio" data-seccio="oportunitats i reptes">⚠️ Oportunitats i reptes</button>
+
+            <button class="opcio" data-seccio="energia">
+                ⚡ Energia
+            </button>
+
+        </div>
+
+
+        <div id="contingut">
+
+            Tria un apartat per consultar-ne la informació.
+
+        </div>
+
+    </div>
+
+
+    <button id="tornarMenu">
+        ← Tornar
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/dades.js?v=20260926-public-copy-7"></script>
+
+<script src="js/mapa.js?v=20260926-public-copy-7"></script>
+
+<script src="js/script.js?v=20260926-public-copy-7"></script>
+
+
+</body>
+
+</html>

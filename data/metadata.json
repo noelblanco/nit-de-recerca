@@ -1,0 +1,82 @@
+{
+  "sections": 5117,
+  "province_filter": null,
+  "structural_file": "data/energy_vulnerability_sections.geojson",
+  "periods": {
+    "heat": {
+      "risk": "heat",
+      "label": "Període càlid · juny-agost",
+      "ranges": [
+        {
+          "start": "2025-06-01",
+          "end": "2025-08-31"
+        }
+      ],
+      "start": "2025-06-01",
+      "end": "2025-08-31",
+      "day_count": 92,
+      "index": "data/daily/heat/index.json"
+    },
+    "cold": {
+      "risk": "cold",
+      "label": "Període fred · febrer-març i novembre-desembre",
+      "ranges": [
+        {
+          "start": "2025-02-01",
+          "end": "2025-03-31"
+        },
+        {
+          "start": "2025-11-01",
+          "end": "2025-12-30"
+        }
+      ],
+      "start": "2025-02-01",
+      "end": "2025-12-30",
+      "day_count": 119,
+      "index": "data/daily/cold/index.json"
+    }
+  },
+  "highlights": [
+    {
+      "risk": "heat",
+      "date": "2025-07-01",
+      "label": "Episodi destacat de calor · 1 de juliol"
+    },
+    {
+      "risk": "cold",
+      "date": "2025-11-21",
+      "label": "Episodi destacat de fred · 21 de novembre"
+    }
+  ],
+  "q90_thresholds_by_province": {
+    "heat": {
+      "08": 1023.4,
+      "17": 662.7,
+      "25": 1246.5,
+      "43": 1031.5
+    },
+    "cold": {
+      "08": 942.0,
+      "17": 550.6,
+      "25": 1048.3301,
+      "43": 901.6
+    }
+  },
+  "build_stats": {
+    "heat": {
+      "days": 92,
+      "compressed_bytes": 24258806,
+      "rows": 11298336
+    },
+    "cold": {
+      "days": 119,
+      "compressed_bytes": 26772408,
+      "rows": 14614152
+    }
+  },
+  "hourly_rows_kept": {
+    "heat": 11298336,
+    "cold": 14614152
+  },
+  "note": "Missing values are null, never zero. R follows the paper notation; W_* are legacy source names for C_*."
+}

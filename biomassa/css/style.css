@@ -1,0 +1,702 @@
+:root {
+
+    /* Mateixa paleta visual que el projecte de vulnerabilitat energètica. */
+    --green: #1b5e20;
+    --green-dark: #144a2f;
+    --green-mid: #2e7d32;
+    --green-soft: #dfeedd;
+    --bg: #edf7ed;
+    --white: #ffffff;
+    --orange: #e86d3d;
+    --text: #173f35;
+    --muted: #5d7069;
+    --line: #d7e2d8;
+    --shadow: 0 8px 28px rgba(27, 94, 32, 0.12);
+
+}
+
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+}
+
+
+
+/* =====================================================
+   CAPÇALERA
+===================================================== */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 72px;
+
+    background: var(--green);
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+}
+
+
+.capcalera {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 145px;
+
+    height: 72px;
+
+}
+
+
+.project-return {
+
+    position: absolute;
+
+    left: 24px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    padding: 10px 15px;
+
+    border: 2px solid rgba(255,255,255,0.55);
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+}
+
+
+.project-return:hover,
+.project-return:focus-visible {
+
+    background: rgba(255,255,255,0.16);
+
+}
+
+
+.logo {
+
+    font-size: 28px;
+
+    margin-right: 15px;
+
+}
+
+
+.titolApp {
+    font-weight: bold;
+
+}
+
+
+.titolApp h3 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    line-height: 1.15;
+
+}
+
+
+.titolApp h4 {
+
+    margin: 3px 0 0;
+
+    color: #cbe0cb;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+}
+
+
+
+/* =====================================================
+   SECCIONS
+===================================================== */
+
+section {
+
+    min-height: calc(100vh - 72px);
+
+    margin-top: 72px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding: 50px 5vw 70px;
+
+}
+
+
+
+/* =====================================================
+   PORTADA
+===================================================== */
+
+#portada {
+
+    display: flex;
+
+}
+
+
+#portada h1 {
+
+    color: var(--green);
+
+    text-align: center;
+
+    max-width: 1000px;
+
+    margin: 14px auto;
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    line-height: 1.08;
+
+}
+
+
+#portada > h4 {
+
+    margin-bottom: 0;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.17em;
+
+}
+
+
+#portada > h3 {
+
+    max-width: 900px;
+
+    color: var(--muted);
+
+    font-weight: 400;
+
+    line-height: 1.55;
+
+    text-align: center;
+
+    font-size: 18px;
+
+}
+
+
+
+/* =====================================================
+   TÍTOLS
+===================================================== */
+
+h1 {
+
+    color: var(--green);
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+h2 {
+
+    color: var(--green);
+
+    text-align: center;
+
+    max-width: 900px;
+
+    line-height: 1.5;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+
+/* =====================================================
+   BOTONS
+===================================================== */
+
+button {
+
+    padding: 15px 28px;
+
+    font-size: 16px;
+
+    background: var(--green-mid);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    margin-top: 30px;
+
+}
+
+
+button:hover {
+
+    background: var(--green);
+
+}
+
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+#menu {
+
+    display: none;
+
+    text-align: center;
+
+}
+
+
+
+/* =====================================================
+   ICONES
+===================================================== */
+
+.icones {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 180px);
+
+    gap: 40px;
+
+    margin-top: 50px;
+
+}
+
+
+.icona {
+
+    background: var(--white);
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    font-size: 24px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.3s;
+
+}
+
+
+.icona:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+
+/* =====================================================
+   PANTALLA BIOMASSA (MENÚ LATERAL + CONTINGUT)
+===================================================== */
+
+#ramadera {
+
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+    padding-top: 65px;
+
+}
+
+
+#ramadera > h1 {
+
+    width: 100%;
+
+    margin: 0 0 35px;
+
+    font-size: 46px;
+
+    line-height: 1.1;
+
+}
+
+
+.pantalla {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 30px;
+
+    width: 100%;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+}
+
+
+.menuLateral {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    min-width: 245px;
+
+    flex-shrink: 0;
+
+}
+
+
+.menuLateral button {
+
+    margin-top: 0;
+
+    min-height: 61px;
+
+    padding: 15px 19px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    text-align: left;
+
+}
+
+
+#contingut {
+
+    flex: 1;
+
+    min-width: 0;
+
+    background: var(--white);
+
+    border-radius: 15px;
+
+    min-height: 430px;
+
+    padding: clamp(28px, 4vw, 52px);
+
+    box-sizing: border-box;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+#contingut > h2 {
+
+    margin: 0 0 24px;
+
+    font-size: clamp(27px, 3vw, 38px);
+
+    line-height: 1.25;
+
+}
+
+
+#contingut > p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+#tornarMenu {
+
+    align-self: center;
+
+    margin-top: 30px;
+
+    padding: 13px 26px;
+
+    font-size: 16px;
+
+}
+
+
+
+/* =====================================================
+   VISOR (MAPA + INFO COMARCA)
+===================================================== */
+
+#visor {
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+#mapa {
+
+    flex: 2;
+
+    min-width: 320px;
+
+    min-height: 600px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+#infoComarca {
+
+    flex: 1;
+
+    min-width: 280px;
+
+    min-height: 600px;
+
+    background: var(--white);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+#infoComarca h2 {
+
+    margin: 0 0 18px;
+
+    font-size: 22px;
+
+    line-height: 1.3;
+
+}
+
+
+#infoComarca p {
+
+    font-size: 15px;
+
+    line-height: 1.55;
+
+}
+
+
+
+/* =====================================================
+   TAULA POTENCIAL
+===================================================== */
+
+.taulaPotencial {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+
+}
+
+
+.taulaPotencial td {
+
+    padding: 8px;
+
+    border-bottom: 1px solid var(--line);
+
+}
+
+
+.taulaPotencial td:last-child {
+
+    text-align: right;
+
+    font-weight: bold;
+
+}
+
+
+.taulaPotencial tr:hover {
+
+    background: var(--green-soft);
+
+}
+
+
+/* El contingut i els càlculs del projecte original no canvien; només
+   s'adapten la tipografia, els colors i el retorn al portal comú. */
+
+button:focus-visible,
+.icona:focus-visible,
+.project-return:focus-visible {
+
+    outline: 3px solid #f1a17f;
+
+    outline-offset: 3px;
+
+}
+
+
+@media (max-width: 760px) {
+
+    header {
+        height: 105px;
+    }
+
+    .project-return {
+        top: 16px;
+        left: 16px;
+        transform: none;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .capcalera {
+        height: 105px;
+        padding: 36px 15px 0;
+        justify-content: flex-start;
+    }
+
+    .titolApp h3 {
+        font-size: 16px;
+    }
+
+    .titolApp h4 {
+        display: none;
+    }
+
+    section {
+        margin-top: 105px;
+        min-height: calc(100vh - 105px);
+        padding: 36px 15px 55px;
+    }
+
+    .icones {
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+        gap: 16px;
+    }
+
+    .pantalla {
+        flex-direction: column;
+    }
+
+    .menuLateral {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #ramadera {
+        padding-top: 38px;
+    }
+
+    #ramadera > h1 {
+        font-size: 36px;
+    }
+
+    #visor {
+        flex-direction: column;
+    }
+
+}

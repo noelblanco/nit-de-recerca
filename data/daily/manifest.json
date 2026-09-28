@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "periods": {
+    "heat": {
+      "risk": "heat",
+      "label": "Període càlid · juny-agost",
+      "ranges": [
+        {
+          "start": "2025-06-01",
+          "end": "2025-08-31"
+        }
+      ],
+      "start": "2025-06-01",
+      "end": "2025-08-31",
+      "day_count": 92,
+      "index": "data/daily/heat/index.json"
+    },
+    "cold": {
+      "risk": "cold",
+      "label": "Període fred · febrer-març i novembre-desembre",
+      "ranges": [
+        {
+          "start": "2025-02-01",
+          "end": "2025-03-31"
+        },
+        {
+          "start": "2025-11-01",
+          "end": "2025-12-30"
+        }
+      ],
+      "start": "2025-02-01",
+      "end": "2025-12-30",
+      "day_count": 119,
+      "index": "data/daily/cold/index.json"
+    }
+  },
+  "highlights": [
+    {
+      "risk": "heat",
+      "date": "2025-07-01",
+      "label": "Episodi destacat de calor · 1 de juliol"
+    },
+    {
+      "risk": "cold",
+      "date": "2025-11-21",
+      "label": "Episodi destacat de fred · 21 de novembre"
+    }
+  ]
+}

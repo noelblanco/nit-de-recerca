@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Projectes de transició energètica de la Nit de la Recerca">
+  <title>Nit de la Recerca · Transició energètica a Catalunya</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css?v=20260926-public-copy-7">
+</head>
+<body class="projects-view">
+  <header>
+    <div class="brand">
+      <span aria-hidden="true">⚡</span>
+      <div>
+        <b>Transició energètica a Catalunya</b>
+        <small>Nit de la Recerca · Universitat de Lleida</small>
+      </div>
+    </div>
+    <!-- El portal comú comença sense el menú intern de vulnerabilitat. -->
+    <nav aria-label="Navegació principal" hidden>
+      <button data-screen="projects">← Projectes</button>
+      <button data-screen="home">🏠 Inici</button>
+      <button data-screen="menu">🧩 Com funciona</button>
+      <button data-screen="explorer">🗺️ Mapa interactiu</button>
+      <button data-screen="help">ℹ️ Ajuda</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portal comú: cada targeta obre un projecte independent. -->
+    <section id="projects" class="screen active project-gateway">
+      <div class="heading">
+        <p class="eyebrow">NIT EUROPEA DE LA RECERCA</p>
+        <h1>Energia i territori a Catalunya</h1>
+        <p>Dos projectes per descobrir com la recerca ajuda a entendre els reptes de la transició energètica.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card biomass-project" aria-label="Entrar al projecte Biomassa Catalunya">
+          <span aria-hidden="true">🌿</span>
+          <h2>Biomassa Catalunya</h2>
+          <p>Recursos de biomassa, distribució territorial i oportunitats de la bioeconomia circular.</p>
+          <a class="primary project-link" href="biomassa/">ENTRA AL PROJECTE</a>
+        </article>
+        <article class="project-card energy-project">
+          <span aria-hidden="true">⚡</span>
+          <h2>Vulnerabilitat energètica</h2>
+          <p>Territori, clima, preu elèctric, risc energètic i predicció a 24 hores.</p>
+          <button type="button" class="primary" data-screen="home">ENTRA AL PROJECTE</button>
+        </article>
+      </div>
+      <p class="creators"><b>Creadores:</b> Esther Estruch Bosch · Elisa Trujillo-Baute · Noel Blanco</p>
+    </section>
+
+    <!-- Portada específica del projecte de vulnerabilitat energètica. -->
+    <section id="home" class="screen hero">
+      <p class="eyebrow">VULNERABILITAT ENERGÈTICA</p>
+      <h1>Pot augmentar la vulnerabilitat energètica?</h1>
+      <p>Descobreix com el territori, la temperatura i el preu de l'electricitat poden coincidir i generar situacions de risc.</p>
+      <button class="primary" data-screen="menu">COMENÇA</button>
+      <p class="hero-meta">Catalunya · 5.117 seccions censals · predicció a +24 h</p>
+    </section>
+
+    <section id="menu" class="screen menu-screen">
+      <div class="heading">
+        <p class="eyebrow">UN RECORREGUT EN QUATRE PASSOS</p>
+        <h1>Com es forma el risc energètic?</h1>
+        <p>Explora cada pas per entendre com el territori, el clima i el preu intervenen en el risc energètic i en la predicció a 24 hores.</p>
+      </div>
+
+      <!-- Els operadors formen part del menú navegable; no es repeteix el flux a sota. -->
+      <div class="risk-flow-menu" aria-label="Territori més clima i preu dona lloc al risc i a la predicció a 24 hores">
+        <button class="topic-card" data-topic="territory"><span>🏘️</span><b>Territori</b><small>Vulnerabilitat estructural</small></button>
+        <strong class="flow-operator" aria-hidden="true">+</strong>
+        <button class="topic-card" data-topic="conditions"><span>🌡️</span><b>Clima i preu</b><small>Condicions de cada moment</small></button>
+        <strong class="flow-operator" aria-hidden="true">→</strong>
+        <button class="topic-card" data-topic="risk"><span>✦</span><b>Risc</b><small>Combinació dels factors</small></button>
+        <strong class="flow-operator" aria-hidden="true">→</strong>
+        <button class="topic-card" data-topic="forecast"><span>⏱️</span><b>Predicció +24 h</b><small>Anticipació i comparació</small></button>
+      </div>
+    </section>
+
+    <section id="topic" class="screen topic-screen">
+      <p class="eyebrow">ENTENDRE EL PROJECTE</p>
+      <h1 id="topicTitle">El territori</h1>
+      <div class="topic-layout">
+        <div class="side-menu" role="tablist" aria-label="Contingut del bloc">
+          <button class="topic-option active" data-topic-section="definition" role="tab">📖 Què és?</button>
+          <button class="topic-option" data-topic-section="relation" role="tab">🔗 Com encaixa?</button>
+          <button class="topic-option" data-topic-section="explore" role="tab">🗺 Explora</button>
+          <button class="topic-option" data-topic-section="remember" role="tab">💡 Recorda</button>
+        </div>
+        <article id="topicContent" class="topic-content" aria-live="polite"></article>
+      </div>
+      <button class="back-button" data-screen="menu">← Tornar</button>
+    </section>
+
+    <section id="explorer" class="screen explorer-screen">
+      <div class="heading compact">
+        <p class="eyebrow" id="viewEyebrow">CATALUNYA I LES QUATRE PROVÍNCIES</p>
+        <h1 id="viewTitle">Vulnerabilitat estructural</h1>
+      </div>
+      <div class="workspace">
+        <aside>
+          <label>Vista<select id="modeSelect"></select></label>
+          <label id="metricWrap">Indicador<select id="metricSelect"></select></label>
+          <label id="periodWrap">Període tèrmic<select id="periodSelect"></select></label>
+          <!-- La data es conserva com a selector intern per carregar les dades,
+               però no es mostra: l'usuari navega amb el període i els accessos ràpids. -->
+          <label id="dateWrap" hidden aria-hidden="true">Dia<select id="dateSelect" tabindex="-1"></select></label>
+          <label id="episodeWrap">Accés ràpid<select id="episodeSelect"></select></label>
+          <div id="timeControls">
+            <label>Moment mostrat<output id="timeLabel">—</output></label>
+            <input id="timeSlider" type="range" min="0" max="0" value="0">
+            <div class="playrow"><button id="prevTime" aria-label="Hora anterior">◀</button><button id="playTime">▶ Reprodueix</button><button id="nextTime" aria-label="Hora següent">▶</button></div>
+          </div>
+          <div id="dailySummary"></div>
+          <div id="legend"></div>
+          <div id="compareHelp"><b>Predicció i observació</b><p>L'esquerra mostra la probabilitat calculada 24 hores abans. La dreta mostra el valor continu del risc compost observat en el moment pronosticat. Cada mapa utilitza cinc quintils propis.</p></div>
+          <details class="scope">
+            <summary>Abast científic</summary>
+            <p>El visor cobreix les 5.117 seccions de Catalunya. L'avaluació publicada del predictor es va fer a Barcelona; els resultats de Girona, Lleida i Tarragona són una extensió exploratòria pendent d'una validació específica.</p>
+          </details>
+        </aside>
+
+        <div class="visual">
+          <div class="map-frame" id="primaryMapFrame"><h2 id="primaryMapTitle"></h2><div id="map"></div></div>
+          <div class="map-frame" id="comparePanel"><h2 id="compareMapTitle">Risc compost observat</h2><div id="compareMap"></div><div id="compareLegend"></div></div>
+          <div id="pricePanel"><h2>Preu horari de l'electricitat</h2><div class="price-chart-wrap"><canvas id="priceChart"></canvas></div></div>
+          <div id="info"><h2>Selecciona una zona</h2><p>Fes clic en una secció censal per consultar el municipi i la informació rellevant.</p></div>
+        </div>
+      </div>
+      <button class="back-button explorer-back" data-back-from-map>← Tornar a l'explicació</button>
+    </section>
+
+    <section id="help" class="screen help-screen">
+      <div class="heading">
+        <p class="eyebrow">RECORREGUT RECOMANAT · 15 MINUTS</p>
+        <h1>Com utilitzar la web</h1>
+      </div>
+      <div class="help-grid">
+        <article><span>1</span><h2>Entén</h2><p>Tria un dels quatre passos i llegeix-ne la definició.</p></article>
+        <article><span>2</span><h2>Explora</h2><p>Obre el visor i consulta l'evolució temporal i, quan correspongui, la distribució territorial.</p></article>
+        <article><span>3</span><h2>Compara</h2><p>Compara la probabilitat anticipada amb la distribució completa del risc observat.</p></article>
+      </div>
+
+      <div class="help-card">
+        <h2>Quatre idees per interpretar el visor</h2>
+        <p><b>Gris</b> vol dir que no hi ha dades, no que el risc sigui zero.</p>
+        <p><b>Moment pronosticat</b> és la data i hora per a la qual es va fer la predicció. El càlcul es va fer 24 hores abans.</p>
+        <p><b>Probabilitat</b> no vol dir certesa ni equival a una alerta oficial.</p>
+        <p><b>Els quintils</b> divideixen les seccions amb dades en cinc grups de la mateixa mida. Cada mapa calcula els seus propis talls.</p>
+      </div>
+
+      <details class="science-detail">
+        <summary>Sobre la recerca</summary>
+        <p>El risc combina vulnerabilitat estructural, estrès tèrmic i preu elèctric. Calor i fred es calculen per separat. El model estima la probabilitat de risc alt 24 hores després.</p>
+        <p>La web explora Catalunya; la validació científica publicada del predictor correspon a Barcelona.</p>
+        <small>Gómez Losada, A., Blanco, N., Trujillo-Baute, E. (2026). <cite>A Data-Driven Approach to Forecasting Short-Term Energy Vulnerability</cite>.</small>
+      </details>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+  <script src="js/config.js?v=20260926-public-copy-7"></script>
+  <script src="js/mapa.js?v=20260926-public-copy-7"></script>
+  <script src="js/app.js?v=20260926-public-copy-7"></script>
+</body>
+</html>
